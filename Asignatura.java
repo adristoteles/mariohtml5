@@ -21,5 +21,8 @@ public class Asignatura {
 		this.nota2 = nota2;
 	}
 	
+	public cambioNecesarioParaElExamenCreo(){
+		System.out.println("QUE EsTA PASANDO");
+	}
 
 }
