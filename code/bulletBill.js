@@ -14,11 +14,11 @@ Mario.BulletBill = function(world, x, y, dir) {
 	this.YPicO = 31;
 	this.Height = 12;
 	this.Width = 4;
-	this.PicWidth = 16;
+	this.PicWidth = 10;
 	this.YPic = 5;
 	this.XPic = 0;
 	this.Ya = -5;
-	this.DeadTime = 0;
+	this.DeadTime = 10;
 	this.Dead = false;
 	this.Anim = 0;
 };
@@ -31,7 +31,7 @@ Mario.BulletBill.prototype.CollideCheck = function() {
     }
     
     var xMarioD = Mario.MarioCharacter.X - this.X, yMarioD = Mario.MarioCharacter.Y - this.Y;
-    if (xMarioD > -16 && xMarioD < 16) {
+    if (xMarioD > -15 && xMarioD < 16) {
         if (yMarioD > -this.Height && yMarioD < this.World.Mario.Height) {
             if (Mario.MarioCharacter.Y > 0 && yMarioD <= 0 && (!Mario.MarioCharacter.OnGround || !Mario.MarioCharacter.WasOnGround)) {
                 Mario.MarioCharacter.Stomp(this);

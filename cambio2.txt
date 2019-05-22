@@ -1,0 +1,13 @@
+
+Mario.FlowerEnemy = function(world, x, y) {
+    this.Image = Enjine.Resources.Images["enemies"];
+    this.World = world;
+    this.X = x;
+    this.Y = y;
+    this.Facing = 1;
+    this.Type = Mario.Enemy.Spiky;
+    this.Winged = false;
+    this.NoFireballDeath = false;
+    this.XPic = 1;
+    this.YPic = 7;
+    this.YPicO = 215;

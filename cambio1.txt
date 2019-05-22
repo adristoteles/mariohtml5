@@ -1,0 +1,37 @@
+Mario.BulletBill = function(world, x, y, dir) {
+	this.Image = Enjine.Resources.Images["enemies"];
+	this.World = world;
+	this.X = x;
+	this.Y = y;
+	this.Facing = dir;
+	
+	this.XPicO = 8;
+	this.YPicO = 31;
+	this.Height = 12;
+	this.Width = 4;
+	this.PicWidth = 10;
+	this.YPic = 5;
+	this.XPic = 0;
+	this.Ya = -5;
+	this.DeadTime = 10;
+	this.Dead = false;
+	this.Anim = 0;
+};
+
+Mario.BulletBill.prototype = new Mario.NotchSprite();
+
+Mario.BulletBill.prototype.CollideCheck = function() {
+    if (this.Dead) {
+        return;
+    }
+    
+    var xMarioD = Mario.MarioCharacter.X - this.X, yMarioD = Mario.MarioCharacter.Y - this.Y;
+    if (xMarioD > -15 && xMarioD < 16) {
+        if (yMarioD > -this.Height && yMarioD < this.World.Mario.Height) {
+            if (Mario.MarioCharacter.Y > 0 && yMarioD <= 0 && (!Mario.MarioCharacter.OnGround || !Mario.MarioCharacter.WasOnGround)) {
+                Mario.MarioCharacter.Stomp(this);
+                this.Dead = true;
+                
+                this.Xa = 0;
+                this.Ya = 1;
+                this.DeadTime = 100;
